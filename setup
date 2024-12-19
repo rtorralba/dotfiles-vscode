@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd "$HOME"
+cd $WORKSPACE_FOLDER
 rm -f .vscode
 ln -s "$HOME/dotfiles/.vscode"
