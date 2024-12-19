@@ -1,4 +1,5 @@
 #!/bin/bash
 
 cd "$HOME"
+rm .vscode
 ln -s "$HOME/dotfiles/.vscode"
