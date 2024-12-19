@@ -7,7 +7,7 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "/usr/local/bin/php",
     "[php]": {
-        "editor.defaultFormatter": "EditorConfig.EditorConfig"
+        "editor.defaultFormatter": "phpactor.vscode-phpactor"
     },
     "editor.formatOnSave": false,
     "php.suggest.basic": false,
