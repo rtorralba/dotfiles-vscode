@@ -4,12 +4,12 @@
     "editor.rulers": [
         120
     ],
+    "editor.formatOnSave": false,
     "php.validate.enable": true,
     "php.validate.executablePath": "/usr/local/bin/php",
     "[php]": {
         "editor.defaultFormatter": "phpactor.vscode-phpactor"
     },
-    "editor.formatOnSave": false,
     "php.suggest.basic": false,
     "phpactor.config": {
         "php_code_sniffer.enabled": true,
