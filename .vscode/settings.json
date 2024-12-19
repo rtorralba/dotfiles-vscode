@@ -1,0 +1,30 @@
+{
+    "editor.suggest.showWords": false,
+    "editor.showUnused": true,
+    "editor.rulers": [
+        120
+    ],
+    "php.validate.enable": true,
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "[php]": {
+        "editor.defaultFormatter": "EditorConfig.EditorConfig"
+    },
+    "editor.formatOnSave": false,
+    "php.suggest.basic": false,
+    "phpactor.config": {
+        "php_code_sniffer.enabled": true,
+        "language_server_phpstan.enabled": true,
+        "language_server_phpstan.tmp_file_disabled": true
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Listen Debug",
+                "type": "php",
+                "request": "launch",
+                "port": 9003
+            }
+        ]
+    }
+}
