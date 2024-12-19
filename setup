@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd "$HOME"
-ln -s "$HOME/dotfiles-vscode/.vscode"
+ln -s "$HOME/dotfiles/.vscode"
