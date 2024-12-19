@@ -14,7 +14,9 @@
     "phpactor.config": {
         "php_code_sniffer.enabled": true,
         "language_server_phpstan.enabled": true,
-        "language_server_phpstan.tmp_file_disabled": true
+        "language_server_phpstan.tmp_file_disabled": true,
+        "language_server_php_cs_fixer.enabled": true,
+        "language_server_php_cs_fixer.bin": "~/.composer/vendor/bin/php-cs-fixer"
     },
     "launch": {
         "version": "0.2.0",
