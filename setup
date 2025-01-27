@@ -3,6 +3,7 @@
 cd $WORKSPACE_FOLDER
 rm -f .vscode
 ln -s "$HOME/dotfiles/.vscode"
+mkdir "$HOME/.config"
 ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
 
 composer global require friendsofphp/php-cs-fixer
