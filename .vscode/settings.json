@@ -25,6 +25,7 @@
         }
     },
     "git.useForcePushWithLease": true,
+    "git.allowNoVerifyCommit": true,
     "git.commandsToLog": [
         "push"
     ],
