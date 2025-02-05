@@ -25,6 +25,9 @@
         }
     },
     "git.useForcePushWithLease": true,
+    "git.commandsToLog": [
+        "push"
+    ],
     "launch": {
         "version": "0.2.0",
         "configurations": [
