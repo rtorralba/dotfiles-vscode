@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "eamodio.gitlens",
         "GitHub.copilot",
         "EditorConfig.EditorConfig",
         "phpactor.vscode-phpactor",
