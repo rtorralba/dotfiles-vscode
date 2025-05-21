@@ -5,7 +5,6 @@
         "phpactor.vscode-phpactor",
         "xdebug.php-debug",
         "recca0120.vscode-phpunit",
-        "anweber.vscode-httpyac",
-        "vivaxy.vscode-conventional-commits"
+        "anweber.vscode-httpyac"
     ]
 }
