@@ -5,6 +5,7 @@
         "phpactor.vscode-phpactor",
         "xdebug.php-debug",
         "recca0120.vscode-phpunit",
-        "anweber.vscode-httpyac"
+        "anweber.vscode-httpyac",
+        "ms-vscode.live-server"
     ]
 }
