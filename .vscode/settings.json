@@ -22,7 +22,22 @@
             "interface_strict": "interface",
             "enum_strict": "enum",
             "trait_strict": "trait"
-        }
+        },
+        "indexer.exclude_patterns": [
+            "\/vendor\/**\/Tests\/**\/*",
+            "\/vendor\/**\/tests\/**\/*",
+            "\/vendor\/composer\/**\/*",
+            "\/vendor\/rector\/rector\/stubs-rector",
+            "\/var\/**\/*",
+            "\/src\/Invoicing\/**\/*",
+            "\/src\/Asesor\/**\/*",
+            "\/src\/Banks\/**\/*",
+            "\/src\/ConfigFunction\/**\/*",
+            "\/src\/Ecommerces\/**\/*",
+            "\/src\/Incomes\/**\/*",
+            "\/src\/Modelos\/**\/*",
+            "\/vendor\/**\/*",
+        ]
     },
     "git.useForcePushWithLease": true,
     "git.allowNoVerifyCommit": true,
