@@ -29,14 +29,7 @@
             "\/vendor\/composer\/**\/*",
             "\/vendor\/rector\/rector\/stubs-rector",
             "\/var\/**\/*",
-            "\/src\/Invoicing\/**\/*",
-            "\/src\/Asesor\/**\/*",
-            "\/src\/Banks\/**\/*",
-            "\/src\/ConfigFunction\/**\/*",
-            "\/src\/Ecommerces\/**\/*",
-            "\/src\/Incomes\/**\/*",
-            "\/src\/Modelos\/**\/*",
-            "\/vendor\/**\/*",
+            "\/vendor\/**\/*"
         ]
     },
     "git.useForcePushWithLease": true,
