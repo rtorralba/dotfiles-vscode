@@ -1,11 +1,13 @@
 {
     "recommendations": [
         "GitHub.copilot",
+        "GitHub.copilot-chat",
         "EditorConfig.EditorConfig",
         "phpactor.vscode-phpactor",
         "xdebug.php-debug",
         "recca0120.vscode-phpunit",
         "anweber.vscode-httpyac",
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "DBCode.dbcode"
     ]
 }
