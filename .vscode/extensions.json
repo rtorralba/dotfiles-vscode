@@ -2,7 +2,7 @@
     "recommendations": [
         "GitHub.copilot-chat",
         "EditorConfig.EditorConfig",
-        "phpactor.vscode-phpactor",
+        "phpantom.phpantom",
         "xdebug.php-debug",
         "recca0120.vscode-phpunit",
         "anweber.vscode-httpyac",
