@@ -2,7 +2,8 @@
 
 cd $WORKSPACE_FOLDER
 rm -rf .vscode/*
-cp -r "$HOME/dotfiles/.vscode/*" .vscode/*
+cp "$HOME/dotfiles/.vscode/extensions.json" .vscode/
+cp "$HOME/dotfiles/.vscode/settings.json" .vscode/
 mkdir "$HOME/.config"
 ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
 
