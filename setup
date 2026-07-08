@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $WORKSPACE_FOLDER
-rm -f .vscode
-ln -s "$HOME/dotfiles/.vscode"
+rm -rf .vscode/*
+cp -r "$HOME/dotfiles/.vscode" .vscode
 mkdir "$HOME/.config"
 ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
 
