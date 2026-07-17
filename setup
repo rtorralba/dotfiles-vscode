@@ -7,5 +7,3 @@ cp "$HOME/dotfiles/.vscode/extensions.json" $WORKSPACE_FOLDER/.vscode/
 cp "$HOME/dotfiles/.vscode/settings.json" $WORKSPACE_FOLDER/.vscode/
 mkdir "$HOME/.config"
 ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
-
-composer global require friendsofphp/php-cs-fixer
