@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "GitHub.copilot-chat",
+        "anthropic.claude-code",
         "EditorConfig.EditorConfig",
         "phpactor.vscode-phpactor",
         "xdebug.php-debug",
