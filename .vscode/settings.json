@@ -45,6 +45,5 @@
                 "port": 9003
             }
         ]
-    },
-    "remote.autoInstallExtensions": false
+    }
 }
