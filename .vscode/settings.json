@@ -28,13 +28,7 @@
             "\/vendor\/rector\/rector\/stubs-rector",
             "\/var\/**\/*",
             "\/vendor\/**\/*"
-        ],
-        "core.trust": {
-            "trust": {
-                "\/var\/www\/api": true
-            },
-            "path": "\/home\/appuser\/.local\/share\/phpactor\/trust.json"
-        }
+        ]
     },
     "git.useForcePushWithLease": true,
     "git.allowNoVerifyCommit": true,
