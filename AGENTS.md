@@ -5,6 +5,7 @@ Este repositorio contiene la configuración de dotfiles que se usa dentro de un 
 ## Estructura
 
 - `setup`: script que se ejecuta para preparar el workspace dentro del devcontainer.
+- `install-extensions.sh`: script que instala (con `code --install-extension`) todas las extensiones listadas en `.vscode/extensions.json`. Está pensado para ejecutarse a mano desde la terminal, no desde `setup` (ver más abajo el motivo).
 - `.vscode/extensions.json`: lista de extensiones **recomendadas** para el workspace.
 - `.vscode/settings.json`: settings de VSCode/PHP/phpactor para el workspace.
 - `.config/phpactor`: configuración de phpactor, enlazada por símlink al `$HOME/.config` del container.
@@ -14,13 +15,21 @@ Este repositorio contiene la configuración de dotfiles que se usa dentro de un 
 1. Limpia la carpeta `.vscode/` del workspace (`rm -rf`).
 2. Copia `extensions.json` y `settings.json` desde `$HOME/dotfiles/.vscode` al workspace (`$WORKSPACE_FOLDER/.vscode`).
 3. Crea `$HOME/.config` y enlaza por símlink la configuración de phpactor (`$HOME/dotfiles/.config/phpactor` -> `$HOME/.config/phpactor`).
-4. Si el comando `code` está disponible en el `PATH`, instala automáticamente (con `code --install-extension`) cada extensión listada en `extensions.json`. Si `code` no está disponible, se salta este paso y lo avisa por consola.
+4. Añade (si no existe ya) un alias `install-extensions` en `$HOME/.bashrc` que ejecuta `$HOME/dotfiles/install-extensions.sh` con el `$WORKSPACE_FOLDER` correcto.
 
 ## Instalación de las extensiones recomendadas
 
-El script `setup` intenta instalar automáticamente las extensiones listadas en `.vscode/extensions.json` usando el CLI `code --install-extension`, siempre que ese comando esté disponible en el `PATH` del devcontainer.
+En el momento en que se ejecuta `setup` (al crearse el devcontainer), el CLI `code` todavía no está disponible en el `PATH`: el shim de VSCode Remote se inyecta más tarde, cuando VSCode termina de conectarse al contenedor. Por eso `setup` **no** puede instalar las extensiones directamente con un `for` en ese punto.
 
-Si el comando `code` no está disponible (por ejemplo, porque el shim de VSCode Remote todavía no se ha inyectado en el `PATH` en ese momento), hay que instalarlas manualmente:
+En su lugar, `setup` deja preparado un alias `install-extensions` (definido en `$HOME/.bashrc`) que apunta al script `install-extensions.sh` de este repo. Una vez que VSCode ya está conectado y `code` está disponible en el `PATH`, basta con abrir una terminal nueva (o hacer `source $HOME/.bashrc`) y ejecutar:
+
+```
+install-extensions
+```
+
+Esto instala todas las extensiones listadas en `.vscode/extensions.json` del workspace.
+
+Alternativamente, también se pueden instalar desde la UI de VSCode:
 
 1. Abrir la paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 2. Ejecutar el comando **"Extensions: Show Recommended Extensions"** (Extensiones: Mostrar extensiones recomendadas).

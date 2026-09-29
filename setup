@@ -8,11 +8,7 @@ cp "$HOME/dotfiles/.vscode/settings.json" $WORKSPACE_FOLDER/.vscode/
 mkdir "$HOME/.config"
 ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
 
-if command -v code &> /dev/null; then
-    echo "Installing recommended extensions from extensions.json"
-    for extension in $(grep -oP '"\K[\w-]+\.[\w-]+(?=")' "$WORKSPACE_FOLDER/.vscode/extensions.json"); do
-        code --install-extension "$extension" --force
-    done
-else
-    echo "'code' command not found, skipping automatic extension installation"
+if ! grep -q "alias install-extensions=" "$HOME/.bashrc" 2>/dev/null; then
+    echo "alias install-extensions='WORKSPACE_FOLDER=\"$WORKSPACE_FOLDER\" bash \$HOME/dotfiles/install-extensions.sh'" >> "$HOME/.bashrc"
 fi
+echo "Run 'install-extensions' from a new terminal once VSCode's 'code' CLI is available"
