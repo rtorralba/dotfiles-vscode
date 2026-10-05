@@ -4,13 +4,59 @@
     "prefix": "fclass",
     "description": "Final class con strict_types",
     "body": [
-      "<?php",
-      "",
       "declare(strict_types=1);",
       "",
       "namespace ${1:App};",
       "",
       "final class ${2:${TM_FILENAME_BASE}}",
+      "{",
+      "\t$0",
+      "}",
+      ""
+    ]
+  },
+  "PHP enum": {
+    "scope": "php",
+    "prefix": "fenum",
+    "description": "Enum con strict_types",
+    "body": [
+      "declare(strict_types=1);",
+      "",
+      "namespace ${1:App};",
+      "",
+      "enum ${2:${TM_FILENAME_BASE}}",
+      "{",
+      "\t$0",
+      "}",
+      ""
+    ]
+  },
+  "PHP interface": {
+    "scope": "php",
+    "prefix": "finterface",
+    "description": "Interface con strict_types",
+    "body": [
+      "declare(strict_types=1);",
+      "",
+      "namespace ${1:App};",
+      "",
+      "interface ${2:${TM_FILENAME_BASE}}",
+      "{",
+      "\t$0",
+      "}",
+      ""
+    ]
+  },
+  "PHP trait": {
+    "scope": "php",
+    "prefix": "ftrait",
+    "description": "Trait con strict_types",
+    "body": [
+      "declare(strict_types=1);",
+      "",
+      "namespace ${1:App};",
+      "",
+      "trait ${2:${TM_FILENAME_BASE}}",
       "{",
       "\t$0",
       "}",
