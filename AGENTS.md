@@ -8,13 +8,15 @@ Este repositorio contiene la configuración de dotfiles que se usa dentro de un 
 - `install-extensions.sh`: script que instala (con `code --install-extension`) todas las extensiones listadas en `.vscode/extensions.json`. Está pensado para ejecutarse a mano desde la terminal, no desde `setup` (ver más abajo el motivo).
 - `.vscode/extensions.json`: lista de extensiones **recomendadas** para el workspace.
 - `.vscode/settings.json`: settings de VSCode/PHP (formateador por defecto de PHP: PHPantom) para el workspace.
-- `.vscode/*.code-snippets`: snippets de workspace (por ejemplo `.vscode/php.code-snippets`). `setup` los enlaza a la carpeta de snippets de usuario de VSCode (ver más abajo); no requieren configuración en `settings.json`.
+- `snippets/php.code-snippets.tpl`: plantilla genérica de los snippets de PHP (clase, enum, interface, trait). El namespace se calcula desde la ruta del fichero con un placeholder de regex.
+- `generate-snippets.php`: lee el `autoload`/`autoload-dev` `psr-4` del `composer.json` del proyecto y rellena la plantilla (sin `composer.json` usa `src` -> `App`). Genera `.vscode/php.code-snippets`, que está en `.gitignore` porque contiene datos del proyecto.
+- `.vscode/php.code-snippets`: fichero **generado** (no editar ni versionar). VSCode lo detecta al estar en `.vscode/` del workspace (enlazado por símlink); no requiere configuración en `settings.json`. Los snippets solo se sugieren dentro de `<?php`.
 
 ## Qué hace el script `setup`
 
 1. Elimina la carpeta `.vscode/` del workspace (`rm -rf`).
 2. Enlaza por símlink `$HOME/dotfiles/.vscode` -> `$WORKSPACE_FOLDER/.vscode`, de modo que cualquier fichero nuevo de `.vscode/` (settings, extensiones, snippets...) llega al workspace sin copiarlo uno a uno. Como es un enlace, los cambios hechos desde el workspace se escriben directamente en los dotfiles.
-3. Enlaza por símlink cada `$HOME/dotfiles/.vscode/*.code-snippets` en `$HOME/.vscode-server/data/User/snippets/` (snippets a nivel de usuario). Se hace porque VSCode no detectaba los snippets de workspace a través del símlink de `.vscode`; así se cargan siempre, sea cual sea el workspace.
+3. Si hay `php` disponible, genera `$HOME/dotfiles/.vscode/php.code-snippets` ejecutando `generate-snippets.php` con el `composer.json` del workspace. Si el `autoload` cambia, basta con volver a ejecutar `setup`.
 4. Añade (si no existe ya) un alias `install-extensions` en `$HOME/.bashrc` que ejecuta `$HOME/dotfiles/install-extensions.sh` con el `$WORKSPACE_FOLDER` correcto.
 
 ## Instalación de las extensiones recomendadas

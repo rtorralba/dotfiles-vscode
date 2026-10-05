@@ -1,2 +1,3 @@
 *.swp
 .claude
+.vscode/php.code-snippets
