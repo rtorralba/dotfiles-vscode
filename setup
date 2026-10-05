@@ -5,6 +5,12 @@ cd $WORKSPACE_FOLDER
 rm -rf "$WORKSPACE_FOLDER/.vscode"
 ln -s "$HOME/dotfiles/.vscode" "$WORKSPACE_FOLDER/.vscode"
 
+# Los snippets se enlazan también a nivel de usuario: VSCode no los detecta de forma fiable a través del symlink de .vscode
+mkdir -p "$HOME/.vscode-server/data/User/snippets"
+for f in "$HOME"/dotfiles/.vscode/*.code-snippets; do
+    [ -e "$f" ] && ln -sf "$f" "$HOME/.vscode-server/data/User/snippets/$(basename "$f")"
+done
+
 if ! grep -q "alias install-extensions=" "$HOME/.bashrc" 2>/dev/null; then
     echo "alias install-extensions='WORKSPACE_FOLDER=\"$WORKSPACE_FOLDER\" bash \$HOME/dotfiles/install-extensions.sh'" >> "$HOME/.bashrc"
 fi
