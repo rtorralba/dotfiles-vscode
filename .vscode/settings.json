@@ -8,28 +8,9 @@
     "php.validate.enable": true,
     "php.validate.executablePath": "/usr/local/bin/php",
     "[php]": {
-        "editor.defaultFormatter": "phpactor.vscode-phpactor"
+        "editor.defaultFormatter": "phpantom.phpantom"
     },
     "php.suggest.basic": false,
-    "phpactor.config": {
-        "php_code_sniffer.enabled": true,
-        "language_server_phpstan.enabled": true,
-        "language_server_phpstan.tmp_file_disabled": true,
-        "code_transform.class_new.variants": {
-            "class_strict": "class",
-            "interface_strict": "interface",
-            "enum_strict": "enum",
-            "trait_strict": "trait"
-        },
-        "indexer.exclude_patterns": [
-            "\/vendor\/**\/Tests\/**\/*",
-            "\/vendor\/**\/tests\/**\/*",
-            "\/vendor\/composer\/**\/*",
-            "\/vendor\/rector\/rector\/stubs-rector",
-            "\/var\/**\/*",
-            "\/vendor\/**\/*"
-        ]
-    },
     "git.useForcePushWithLease": true,
     "git.allowNoVerifyCommit": true,
     "git.commandsToLog": [

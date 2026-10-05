@@ -1,21 +1,20 @@
 # AGENTS.md
 
-Este repositorio contiene la configuración de dotfiles que se usa dentro de un devcontainer de VSCode. Sirve para dejar el entorno de trabajo (extensiones recomendadas, settings de VSCode, configuración de phpactor, etc.) listo cada vez que se levanta un nuevo devcontainer.
+Este repositorio contiene la configuración de dotfiles que se usa dentro de un devcontainer de VSCode. Sirve para dejar el entorno de trabajo (extensiones recomendadas, settings de VSCode, PHPantom como servidor de lenguaje PHP, etc.) listo cada vez que se levanta un nuevo devcontainer.
 
 ## Estructura
 
 - `setup`: script que se ejecuta para preparar el workspace dentro del devcontainer.
 - `install-extensions.sh`: script que instala (con `code --install-extension`) todas las extensiones listadas en `.vscode/extensions.json`. Está pensado para ejecutarse a mano desde la terminal, no desde `setup` (ver más abajo el motivo).
 - `.vscode/extensions.json`: lista de extensiones **recomendadas** para el workspace.
-- `.vscode/settings.json`: settings de VSCode/PHP/phpactor para el workspace.
-- `.config/phpactor`: configuración de phpactor, enlazada por símlink al `$HOME/.config` del container.
+- `.vscode/settings.json`: settings de VSCode/PHP (formateador por defecto de PHP: PHPantom) para el workspace.
+- `.vscode/*.code-snippets`: snippets de workspace (por ejemplo `.vscode/php.code-snippets`). VSCode los detecta automáticamente al estar en `.vscode/` del workspace; no requieren configuración en `settings.json`.
 
 ## Qué hace el script `setup`
 
-1. Limpia la carpeta `.vscode/` del workspace (`rm -rf`).
-2. Copia `extensions.json` y `settings.json` desde `$HOME/dotfiles/.vscode` al workspace (`$WORKSPACE_FOLDER/.vscode`).
-3. Crea `$HOME/.config` y enlaza por símlink la configuración de phpactor (`$HOME/dotfiles/.config/phpactor` -> `$HOME/.config/phpactor`).
-4. Añade (si no existe ya) un alias `install-extensions` en `$HOME/.bashrc` que ejecuta `$HOME/dotfiles/install-extensions.sh` con el `$WORKSPACE_FOLDER` correcto.
+1. Elimina la carpeta `.vscode/` del workspace (`rm -rf`).
+2. Enlaza por símlink `$HOME/dotfiles/.vscode` -> `$WORKSPACE_FOLDER/.vscode`, de modo que cualquier fichero nuevo de `.vscode/` (settings, extensiones, snippets...) llega al workspace sin copiarlo uno a uno. Como es un enlace, los cambios hechos desde el workspace se escriben directamente en los dotfiles.
+3. Añade (si no existe ya) un alias `install-extensions` en `$HOME/.bashrc` que ejecuta `$HOME/dotfiles/install-extensions.sh` con el `$WORKSPACE_FOLDER` correcto.
 
 ## Instalación de las extensiones recomendadas
 

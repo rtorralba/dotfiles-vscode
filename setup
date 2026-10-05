@@ -2,11 +2,8 @@
 
 echo "Setting up workspace folder: $WORKSPACE_FOLDER"
 cd $WORKSPACE_FOLDER
-rm -rf $WORKSPACE_FOLDER/.vscode/*
-cp "$HOME/dotfiles/.vscode/extensions.json" $WORKSPACE_FOLDER/.vscode/
-cp "$HOME/dotfiles/.vscode/settings.json" $WORKSPACE_FOLDER/.vscode/
-mkdir "$HOME/.config"
-ln -s "$HOME/dotfiles/.config/phpactor" "$HOME/.config/phpactor"
+rm -rf "$WORKSPACE_FOLDER/.vscode"
+ln -s "$HOME/dotfiles/.vscode" "$WORKSPACE_FOLDER/.vscode"
 
 if ! grep -q "alias install-extensions=" "$HOME/.bashrc" 2>/dev/null; then
     echo "alias install-extensions='WORKSPACE_FOLDER=\"$WORKSPACE_FOLDER\" bash \$HOME/dotfiles/install-extensions.sh'" >> "$HOME/.bashrc"
